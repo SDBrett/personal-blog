@@ -22,12 +22,15 @@ This article is the first in a new series where I'll attempt to explain Kubernet
 
 ## What is an operator?
 
+An operator is one or more custom resources and a control loop process which runs inside a pod on a Kubernetes cluster. 
+
+## What does an operator do?
+
 An operator manages a Kubernetes native application's lifecycle by extending the Kubernetes API using custom resources (CR's) specific to the application. A Kubernetes application is an application written specifically to run on Kubernetes and leverages the Kubernetes API.
 
 Operators contain application-specific logic allowing automation of operational tasks required to deploy, update and remove an application. These operational tasks are manually performed by operations teams when no operator exists. 
 
 Operators are targeted towards stateful services as they are more likely to require the execution of additional tasks. A stateless service's lifecycle can be managed by out of the box Kubernetes components as they generally do not require post-deployment configuration.
-
 
 ## Stateful vs Stateless services Operational tasks
 
