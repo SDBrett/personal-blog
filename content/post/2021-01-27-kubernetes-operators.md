@@ -40,6 +40,13 @@ Stateful services are not ephemeral and often require additional configuration t
 
 Scaling the number of pods providing our database service requires updating the service to add or remove new members. This kind of task is where operators can leverage application logic to automate the process.
 
+## Custom Resources
+
+Custom resources extend the Kubernetes API by adding a new end point to the collection of API objects.
+
+A custom resources specification is defined in an object called a Custom Resource Definition (CRD). The CRD provides the Kubernetes API with metadata, data structure and validation information required to implement a new resource end point.
+
+An operator applies at least one custom resource during deployment.
 
 ## The Control Loop
 
@@ -55,7 +62,7 @@ The operator queries the Kube API to receive resources that it's configured to w
 Resources received in the observation step are checked to see if they have changed and if current and desired states match. 
 Most Kubernetes objects have a `.spec` field representing the desired state and a `.status` field representing the current state.
 
-## Act
+**Act**
 The act step (AKA reconciliation function) attempts to align the current state of resources to the desired state by applying application logic.
 
 Application logic is added to the reconciliation function and tells the operator what to do when a change is detected.
