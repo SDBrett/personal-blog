@@ -4,3 +4,4 @@ public
 config/
 docker/
 themes/zzo
+.DS_STORE
