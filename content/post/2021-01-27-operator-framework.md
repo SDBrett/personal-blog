@@ -3,7 +3,7 @@ author: Brett Johnson
 categories:
 - Kubernetes
 - Operators
-date: "2021-01-27"
+date: "2021-02-02"
 image: /assets/images/operator_logo_framework_color.svg
 tags:
 - Kubernetes
@@ -15,7 +15,7 @@ versions:
   - v1.17.x
   - v1.18.x
   - v1.19.x
-draft: true
+draft: false
 ---
 
 Development and management of Kubernetes native applications is a difficult task with a steep learning curve. The operator framework aims to reduce the complexity by pooling shared expertise into a single project and standardize application packaging.
