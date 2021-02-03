@@ -38,11 +38,11 @@ Kustomize processes the CRD, RBAC, and Manager manifests and generates useable m
 
 **Manage**
 
-The manage pillar focuses on managing an operators lifecycle using the Operator Lifecycle Manager (OLM) tool. The OLM uses the operator built by the SDK and adds metadata to create a distributable operator.
+The manage pillar focuses on managing an operators lifecycle using the Operator Lifecycle Manager (OLM). The operator SDK consumes the manifests created during the build stage and creates a package called a bundle.
 
 One of the artifacts created by bundling this the Cluster Service Version (CSV) which contains metadata for searching, minimum Kubernetes versions, required permissions and dependencies on other operators.
 
-The OLM can deploy a local registry service to a cluster, making the operator locally available.
+The OLM is an operator that runs on the kubernetes cluster, extending the API to enable operators to be managed.
 
 OLM resources are not available on a cluster by default, you added them before using OLM. The following link contains details on deploying OLM resources. [Install an Operator](https://operatorhub.io/how-to-install-an-operator).
 
