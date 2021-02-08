@@ -1,5 +1,6 @@
 ---
 author: Brett Johnson
+postseries: operators
 categories:
 - Kubernetes
 - Operators
