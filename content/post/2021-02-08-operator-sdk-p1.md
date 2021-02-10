@@ -553,7 +553,7 @@ func (r *VaultsReconciler) SetupWithManager(mgr ctrl.Manager) error {
     For(&vaultv1alpha1.Vaults{}).
     Complete(r)
 }
-{{ /highlight }}
+{{< /highlight >}}
 
 This code generates the following ClusterRole manifest.
 
