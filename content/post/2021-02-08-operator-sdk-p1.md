@@ -5,7 +5,7 @@ categories:
 - Kubernetes
 - Operators
 date: "2021-02-08"
-image: /assets/images/operator_logo_framework_color.svg
+image: /assets/images/operator_logo_sdk_color.svg
 tags:
 - Kubernetes
 - Operators
@@ -18,6 +18,8 @@ versions:
   - v1.19.x
 draft: false
 ---
+
+[*Feature image source*](https://raw.githubusercontent.com/operator-framework/operator-sdk/master/website/static/operator_logo_sdk_color.svg)
 
 The Operator-SDK is a command-line tool used by operator developers to build, test and package their operators. The SDK assists developers transform application business logic into a package which extends the Kubernetes API.
 
