@@ -3,7 +3,7 @@ author: Brett Johnson
 categories:
 - Kubernetes
 - ArgoCD
-date: "2021-06-07"
+date: "2021-06-08"
 image: /assets/images/argo-horizontal-color.svg
 tags:
 - Kubernetes
