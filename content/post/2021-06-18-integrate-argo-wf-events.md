@@ -350,6 +350,66 @@ The below images are from the Argo Workflows UI.
 ![Test Result 1](/assets/images/argo-integration-test-result1.png)
 ![Test Result 2](/assets/images/argo-integration-test-result2.png)
 
+# Update 21/09/2021
+
+In the example used for this post, the whalesay pod writes the entire Argo Events message to stdout. The message includes the HTTP request, though it is base64 encoded.
+
+Natalie Caruna pointed has point out that to the Sensor manifest will cause the pod to display only the message content.
+
+{{% highlight yaml %}}
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: webhook
+spec:
+  template:
+    serviceAccountName: operate-workflow-sa
+  dependencies:
+    - name: test-dep
+      eventSourceName: webhook
+      eventName: deploy
+  triggers:
+    - template:
+        name: webhook-workflow-trigger
+        k8s:
+          group: argoproj.io
+          version: v1alpha1
+          resource: workflows
+          operation: create
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: Workflow
+              metadata:
+                generateName: webhook-
+              spec:
+                entrypoint: whalesay
+                arguments:
+                  parameters:
+                  - name: message
+                    # the value will get overridden by event payload from test-dep
+                    value: hello world
+                templates:
+                - name: whalesay
+                  inputs:
+                    parameters:
+                    - name: message
+                  container:
+                    image: docker/whalesay:latest
+                    command: [cowsay]
+                    args: ["{{inputs.parameters.bucket}}","{{inputs.parameters.key}}"]
+          parameters:
+            - src:
+                dependencyName: test-dep
+                dataKey: body.bucket
+              dest: spec.arguments.parameters.0.value
+            - src:
+                dependencyName: test-dep
+                dataKey: body.key
+              dest: spec.arguments.parameters.1.value
+{{% / highlight %}}
+
+
 # Summary
 Technically Argo Events and Argo Workflows do not integrate with each other so it would be more accurate to say that they work well together. Argo Events and Argo Workflows are two independent products, each addressing their specific use cases.
 
