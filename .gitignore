@@ -5,3 +5,5 @@ config/
 docker/
 themes/zzo
 .DS_STORE
+resources/_gen
+.hugo_build.lock
